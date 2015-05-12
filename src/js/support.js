@@ -22,5 +22,9 @@ window.support = {
 
   isVisible: function($e){
     return $e.is(":visible");
+  },
+
+  hide: function($e){
+    return $e.hide();
   }
 };

@@ -48,7 +48,7 @@
     assert.ok(support.isVisible(page), "Should set page to visible on init.");
   });
 
-  QUnit.test("Should callback on login success", function (assert) {
+  QUnit.asyncTest("Should callback on login success", function (assert) {
     var onLogin = function(user){
           assert.deepEqual(user, expectedUser, "Should callback onLogin with user object");
         };
@@ -63,7 +63,10 @@
     support.input($idInput(), expectedUser.id);
     support.click($loginButton());
 
-    assert.expect(1);
+    setTimeout(function(){
+      assert.notOk(support.isVisible($page()), "Should hide page on login success");
+    });
+    assert.expect(2);
   });
 
   QUnit.test("Should show message if invalid user id", function (assert) {
