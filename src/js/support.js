@@ -12,12 +12,12 @@ window.support = {
     };
   },
 
-  input: function($e, value){
-    $e.val(value);
+  input: function ($e, value) {
+    return $e.is("input") ? $e.val(value) : $e.html();
   },
 
   read: function($e){
-    return $e.val();
+    return $e.is("input") ? $e.val() : $e.html();
   },
 
   isVisible: function($e){
@@ -26,5 +26,26 @@ window.support = {
 
   hide: function($e){
     return $e.hide();
+  },
+
+  getImageUrlOf: function($e){
+    return $e.css("background-image").replace("url(", "").replace(")", "");
+  },
+
+  setImage: function(url){
+    var bgValue = "url(<url>)".replace("<url>", url);
+    return {
+      on: function($e){
+        $e.css("background-image", bgValue);
+      }
+    };
+  },
+
+  setValue: function(value){
+    return {
+      on: function($e){
+        $e.html(value);
+      }
+    };
   }
 };
