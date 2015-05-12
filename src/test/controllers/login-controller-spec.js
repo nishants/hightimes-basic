@@ -71,12 +71,10 @@
   });
 
   QUnit.test("Should callback on login success", function (assert) {
-    var loginDone         = assert.async(),
-        pageHidden        = assert.async();
-    var
+    var done  = assert.async(),
+        userFound,
         onLogin = function(user){
-          assert.deepEqual(user, expectedUser, "Should callback onLogin with user object");
-          loginDone();
+          userFound = user;
         };
 
     controller = new hightimes.LoginController(
@@ -91,10 +89,11 @@
 
     setTimeout(function(){
       assert.notOk(support.isVisible($page()), "Should hide page on login success");
-      pageHidden();
+      assert.deepEqual(userFound, expectedUser, "Should callback onLogin with user object");
+      done();
     });
 
-    assert.expect()
+    assert.expect(2);
   });
 
 }).call(this);
