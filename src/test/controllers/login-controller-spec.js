@@ -1,5 +1,6 @@
 (function(){
   "user strict"
+
   var controller,
       $page         = function (){return $("#login-page");},
       $loginButton  = function(){return $("#login-by-id");},
@@ -18,8 +19,6 @@
           };
         };
       },
-
-      errorName = "Login Error"
       expectedError = "Invalid user id",
       whenGetUserByIdThrowNotFound = function (expectedId) {
         userService.userById = function (id) {
@@ -48,26 +47,6 @@
     assert.ok(support.isVisible(page), "Should set page to visible on init.");
   });
 
-  QUnit.asyncTest("Should callback on login success", function (assert) {
-    var onLogin = function(user){
-          assert.deepEqual(user, expectedUser, "Should callback onLogin with user object");
-        };
-
-    controller = new hightimes.LoginController(
-        $page(),
-        userService,
-        onLogin
-    );
-
-    whenGetUserByIdReturn(expectedUser.id, expectedUser);
-    support.input($idInput(), expectedUser.id);
-    support.click($loginButton());
-
-    setTimeout(function(){
-      assert.notOk(support.isVisible($page()), "Should hide page on login success");
-    });
-    assert.expect(2);
-  });
 
   QUnit.test("Should show message if invalid user id", function (assert) {
     var
@@ -90,6 +69,33 @@
     support.click($loginButton());
 
     assert.expect(1);
+  });
+
+  QUnit.test("Should callback on login success", function (assert) {
+    var loginDone         = assert.async(),
+        pageHidden        = assert.async();
+    var
+        onLogin = function(user){
+          assert.deepEqual(user, expectedUser, "Should callback onLogin with user object");
+          loginDone();
+        };
+
+    controller = new hightimes.LoginController(
+        $page(),
+        userService,
+        onLogin
+    );
+
+    whenGetUserByIdReturn(expectedUser.id, expectedUser);
+    support.input($idInput(), expectedUser.id);
+    support.click($loginButton());
+
+    setTimeout(function(){
+      assert.notOk(support.isVisible($page()), "Should hide page on login success");
+      pageHidden();
+    });
+
+    assert.expect()
   });
 
 }).call(this);
