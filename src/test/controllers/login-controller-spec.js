@@ -47,7 +47,6 @@
     assert.ok(support.isVisible(page), "Should set page to visible on init.");
   });
 
-
   QUnit.test("Should show message if invalid user id", function (assert) {
     var
         onLogin = function () {
