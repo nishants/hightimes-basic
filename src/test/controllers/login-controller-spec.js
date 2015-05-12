@@ -5,10 +5,10 @@
       $page         = function (){return $("#login-page");},
       $loginButton  = function(){return $("#login-by-id");},
       $idInput      = function(){return $("#login-user-id");},
-      loginHml =  '<div id="login-page">                      '+
-                  '   <input id="login-user-id"/>             '+
-                  '   <button id="login-by-id">go</button>    '+
-                  '</div>',
+      loginHml      = '<div id="login-page">                      ' +
+                      '   <input id="login-user-id"/>             ' +
+                      '   <button id="login-by-id">go</button>    ' +
+                      '</div>',
 
       expectedUser = {id: 1, username: "abc", full_name: "abc"},
       userService = {},
@@ -34,17 +34,32 @@
     }
   });
 
-  QUnit.test("Should set page to visible if not already visible", function (assert) {
-    var page = $page();
+  QUnit.test("Should callback on login success", function (assert) {
+    $page().hide();
+    var done  = assert.async(),
+        userFound,
+        onLogin = function(user){
+          userFound = user;
+        };
 
-    page.hide();
     controller = new hightimes.LoginController(
         $page(),
-        {},
-        function(){}
+        userService,
+        onLogin
     );
+    assert.ok(support.isVisible($page()), "Should set page to visible on init.");
 
-    assert.ok(support.isVisible(page), "Should set page to visible on init.");
+    whenGetUserByIdReturn(expectedUser.id, expectedUser);
+    support.input($idInput(), expectedUser.id);
+    support.click($loginButton());
+
+    setTimeout(function(){
+      assert.notOk(support.isVisible($page()), "Should hide page on login success");
+      assert.deepEqual(userFound, expectedUser, "Should callback onLogin with user object");
+      done();
+    });
+
+    assert.expect(3);
   });
 
   QUnit.test("Should show message if invalid user id", function (assert) {
@@ -68,32 +83,6 @@
     support.click($loginButton());
 
     assert.expect(1);
-  });
-
-  QUnit.test("Should callback on login success", function (assert) {
-    var done  = assert.async(),
-        userFound,
-        onLogin = function(user){
-          userFound = user;
-        };
-
-    controller = new hightimes.LoginController(
-        $page(),
-        userService,
-        onLogin
-    );
-
-    whenGetUserByIdReturn(expectedUser.id, expectedUser);
-    support.input($idInput(), expectedUser.id);
-    support.click($loginButton());
-
-    setTimeout(function(){
-      assert.notOk(support.isVisible($page()), "Should hide page on login success");
-      assert.deepEqual(userFound, expectedUser, "Should callback onLogin with user object");
-      done();
-    });
-
-    assert.expect(2);
   });
 
 }).call(this);
