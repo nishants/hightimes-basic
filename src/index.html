@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/lib/jquery.js"></script>
+
+    <script src="js/hightimes.js"></script>
+    <script src="js/controllers/login-controller.js"></script>
+    <script src="js/controllers/dashboard-controller.js"></script>
+</head>
+
+<body class="img-background img-bg-blue-lit">
+
+<div id="login-page" class="full-screen" action="">
+    <div id="trademark" class="centered banner-text txt-deep-blue">hightimes</div>
+
+    <div class="attached-input-button centered">
+        <input id="login-user-id" placeholder="id" class="row"/>
+        <button id="login-by-id">go</button>
+    </div>
+
+    <div class="attached-input-button centered hidden">
+        <input id="username" placeholder="username" class="row"/>
+        <button id="login-by-name">go</button>
+    </div>
+</div>
+
+<div id="dashboard-page" class="centered full-screen hidden" action="">
+    <div id="user-profile">
+        <div id="user-profile-pic" src=""></div>
+
+        <p id="userfullname"></p>
+    </div>
+    <ul class="legends undo-list">
+        <li>low</li>
+        <li class="indicator-level-0"></li>
+        <li class="indicator-level-1"></li>
+        <li class="indicator-level-2"></li>
+        <li class="indicator-level-3"></li>
+        <li>high</li>
+    </ul>
+
+    <!--TODO instead of monday, counting must start from sunday.-->
+    <div id="monday" class="weekday ">
+        <div class="indicator" id="indicator00"></div>
+        <div class="indicator" id="indicator01"></div>
+        <div class="indicator" id="indicator02"></div>
+        <div class="indicator" id="indicator03"></div>
+        <div class="indicator" id="indicator04"></div>
+        <div class="indicator" id="indicator05"></div>
+        <div class="indicator" id="indicator06"></div>
+        <div class="indicator" id="indicator07"></div>
+    </div>
+    <div id="tuesday" class="weekday ">
+        <div class="indicator" id="indicator10"></div>
+        <div class="indicator" id="indicator11"></div>
+        <div class="indicator" id="indicator12"></div>
+        <div class="indicator" id="indicator13"></div>
+        <div class="indicator" id="indicator14"></div>
+        <div class="indicator" id="indicator15"></div>
+        <div class="indicator" id="indicator16"></div>
+        <div class="indicator" id="indicator17"></div>
+    </div>
+    <div id="wednesday" class="weekday ">
+        <div class="indicator" id="indicator20"></div>
+        <div class="indicator" id="indicator21"></div>
+        <div class="indicator" id="indicator22"></div>
+        <div class="indicator" id="indicator23"></div>
+        <div class="indicator" id="indicator24"></div>
+        <div class="indicator" id="indicator25"></div>
+        <div class="indicator" id="indicator26"></div>
+        <div class="indicator" id="indicator27"></div>
+    </div>
+    <div id="thursday" class="weekday ">
+        <div class="indicator" id="indicator30"></div>
+        <div class="indicator" id="indicator31"></div>
+        <div class="indicator" id="indicator32"></div>
+        <div class="indicator" id="indicator33"></div>
+        <div class="indicator" id="indicator34"></div>
+        <div class="indicator" id="indicator35"></div>
+        <div class="indicator" id="indicator36"></div>
+        <div class="indicator" id="indicator37"></div>
+    </div>
+    <div id="friday" class="weekday ">
+        <div class="indicator" id="indicator40"></div>
+        <div class="indicator" id="indicator41"></div>
+        <div class="indicator" id="indicator42"></div>
+        <div class="indicator" id="indicator43"></div>
+        <div class="indicator" id="indicator44"></div>
+        <div class="indicator" id="indicator45"></div>
+        <div class="indicator" id="indicator46"></div>
+        <div class="indicator" id="indicator47"></div>
+    </div>
+    <div id="saturday" class="weekday ">
+        <div class="indicator" id="indicator50"></div>
+        <div class="indicator" id="indicator51"></div>
+        <div class="indicator" id="indicator52"></div>
+        <div class="indicator" id="indicator53"></div>
+        <div class="indicator" id="indicator54"></div>
+        <div class="indicator" id="indicator55"></div>
+        <div class="indicator" id="indicator56"></div>
+        <div class="indicator" id="indicator57"></div>
+    </div>
+    <div id="sunday" class="weekday ">
+        <div class="indicator" id="indicator60"></div>
+        <div class="indicator" id="indicator61"></div>
+        <div class="indicator" id="indicator62"></div>
+        <div class="indicator" id="indicator63"></div>
+        <div class="indicator" id="indicator64"></div>
+        <div class="indicator" id="indicator65"></div>
+        <div class="indicator" id="indicator66"></div>
+        <div class="indicator" id="indicator67"></div>
+    </div>
+</div>
+
+<script>
+    var init = function () {};
+    $(document).ready(init);
+</script>
+<div id="select-user-dialog" class="modal-window hidden centered bg-high-blue hidden">
+    <div class="close-modal btn bad-action">X</div>
+    <p class="modal-message">Please select correct username to continue</p>
+
+    <form>
+        <div id="sample-option" class="username-option btn pull-left "> nishant.singh87</div>
+    </form>
+</div>
+</body>
+</html>

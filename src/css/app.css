@@ -1,0 +1,269 @@
+/* **************** Undo's *****************/
+.undo-image {
+  /* max-width: 50vh; */
+  height: 50vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 5vh;
+  border: none;
+  background-color: rgb(184, 234, 235);
+  color: rgb(27, 123, 163);
+}
+
+input {
+  text-indent: 1vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 5vh;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: rgb(27, 123, 163);
+}
+
+.attached-input-button {
+  display: table;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+}
+
+.attached-input-button > input {
+  max-width: 66%;
+  padding: 2%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.attached-input-button > button {
+  max-width: 21%;
+  padding: 2%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(193, 239, 238);;
+}
+
+:-moz-placeholder {
+  color: rgb(193, 239, 238);
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgb(193, 239, 238);
+}
+
+:-ms-input-placeholder {
+  color: rgb(193, 239, 238);
+}
+
+/* **************** Styles**************** */
+.btn {
+  background-color: rgb(208, 243, 243);
+  padding: 5px;
+  margin: 5px;
+  color: rgb(24, 117, 157);
+}
+
+.modal-window {
+  position: absolute;
+  margin: 10%;
+  top: 15%;
+  background: rgba(0, 0, 0, 0.1);
+  border: solid;
+  border-width: 1px;
+  padding: 5%;
+  border: 1px outset rgba(208, 243, 243, 0.53);
+  padding-top: 0;
+}
+
+.img-background {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.pull-left {
+  float: left;
+  clear: left;
+}
+
+.txt-high-blue {
+  color: rgb(26, 122, 162);
+}
+
+.txt-low-blue {
+  color: rgb(208, 243, 243);
+}
+
+.centered {
+  text-align: center;
+}
+
+.full-screen {
+  min-height: 100vh; /*Each section of the size of viewport.*/
+}
+
+.bad-action {
+  color: rgb(187, 222, 222);;
+}
+
+.hidden {
+  display: none;
+}
+
+/* **************** Masking **************** */
+
+.img-bg-blue-lit {
+  background-image: url("../images/blue-lit.jpg");
+}
+
+.username-option {
+  width: 100%;
+}
+
+.close-modal {
+  width: 20px;
+  line-height: 20px;
+}
+
+.modal-message {
+  color: rgb(208, 243, 243);
+  border-bottom: 1px solid rgba(208, 243, 243, 0.53);
+  text-shadow: 0 0 3px rgb(28, 123, 164);
+}
+
+.indicator-level-0 {
+  background-color: #eee;
+  display: none !important;
+}
+
+.indicator-level-1 {
+  background-color: #d6e685;
+}
+
+.indicator-level-2 {
+  background-color: #8cc665;
+}
+
+.indicator-level-3 {
+  background-color: #44a340;
+}
+
+.indicator-level-4 {
+  background-color: #1e6823;
+}
+
+.weekday {
+  background: rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+}
+
+.indicator {
+  display: inline-block;
+  margin: 5px;
+  padding: 5%;
+}
+
+.day-label {
+  display: block;
+  border: none;
+}
+
+#user-profile {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+#userfullname {
+  color: rgb(59, 153, 179);
+  display: inline-block;
+}
+
+#user-profile-pic {
+  display: inline-block;
+  max-height: 10vh;
+}
+
+.legends {
+  list-style: none;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.legends > li {
+  display: inline-block;
+  min-height: 10vh;
+  min-width: 10vh;
+  vertical-align: top;
+}
+
+#login-page {
+}
+
+#dashboard-page {
+  padding: 5px;
+}
+
+body {
+  font-family: kaushan;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 5vh;
+  background: rgba(78, 174, 202, 0.67);
+}
+
+.banner-text {
+  font-size: 15vh;
+}
+
+.txt-deep-blue {
+  color: rgb(21, 91, 120);
+}
+
+#user-profile-pic {
+  vertical-align: middle;
+  min-height: 15vh;
+  min-width: 15vh;
+  margin: 1vh;
+  background: url("../images/sample-user.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#trademark {
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+}
+
+@font-face {
+  font-family: kaushan;
+  src: url("../fonts/kaushan.otf") format("opentype");
+}
+
+input, button, select, textarea {
+  border-radius: 1vh;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 1px 1px 14px 14px rgba(164, 233, 235, 1);
+}
